@@ -1,0 +1,21 @@
+.remove-right-padding {
+    padding-right: 0;
+}
+.add-bottom-margin {
+    margin-bottom: 10px;
+}
+.add-left-margin {
+    margin-left: 10px;
+}
+.update-btn {
+    color: #918f0f;
+    font-weight: bold;
+}
+.delete-btn {
+    color: red;
+    font-weight: bold;
+}
+.detail-btn {
+    color: green;
+    font-weight: bold;
+}

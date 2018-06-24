@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="col-xs-offset-2 col-xs-8">
+        <div class="title">
+                <h2>
+                    {{post.title | titlecase}}
+                </h2>
+            </div>
+            
+            <div class="content">
+                <p>
+                    {{post.content}}
+                </p>
+            </div>
+            <div class="sub-info pull-right">
+                <sub>
+                    {{post.author}}
+                </sub>
+                <sub>
+                    {{post.date}}
+                </sub>
+            </div>
+            <div>
+                <a class="btn btn-default" (click)="goToPosts()">
+                    Back
+                </a>
+            </div>
+    </div>
+</div>

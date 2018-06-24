@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Post table</h2>
+  <button (click)="goToCreatePost()" class="btn btn-primary add-bottom-margin">Create New Post</button>
+  <div class="form-group col-xs-0.5 pull-right remove-right-padding add-left-margin">
+    <select (change)="goToPostsPrePage($event.target.value)" class="form-control">
+      <option *ngFor="let postPrePage of postsPrePageArray">{{postPrePage}}</option>
+    </select>
+  </div>
+  <button (click)="setSampleData()" class="btn btn-danger pull-right add-bottom-margin">
+    Set Sample Data
+  </button>
+  <table class="table table-bordered">
+    <tr>
+      <th *ngFor="let key of postKeys">
+        {{ key | titlecase }}
+      </th>
+      <th> Update </th>
+      <th> Delete </th>
+    </tr>
+    <tr *ngFor="let post of posts; index as i">
+      <td>{{post.author}}</td>
+      <td>{{post.title}}</td>
+      <td>{{post.date | date:'medium'}}</td>
+      <td>
+        {{post.content | slice:0:40}}... 
+        <a (click)="goToDetailedPost(i+1)" class="detail-btn ">Detailed view</a>
+      </td>
+      <td>
+        <a (click)="goToUpdatePost(i+1)" class="update-btn">UPDATE</a>
+      </td>
+      <td>
+        <a (click)="deletePost(i)" class="delete-btn">DELETE</a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="form-group col-xs-0.5 pull-right remove-right-padding">
+      <select (change)="goToPage($event.target.value)" class="form-control">
+        <option *ngFor="let page of pageCount">{{page}}</option>
+      </select>
+    </div>
+
+</div>
+
