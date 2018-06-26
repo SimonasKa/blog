@@ -38,8 +38,15 @@ export class PostService {
 
   createPost(post) {
     post.date = new Date();
-    let posts = JSON.parse(localStorage.getItem('posts')).posts.push(post);;
-    localStorage.setItem('posts', JSON.stringify(posts));
+    if(localStorage.getItem('posts')){
+      let posts = JSON.parse(localStorage.getItem('posts')).posts.push(post);;
+      localStorage.setItem('posts', JSON.stringify(posts));
+    } else {
+        localStorage.setItem('posts', JSON.stringify({
+          "posts": [
+            { "author": post.author, "title": post.title, "date":post.date, "content": post.content } 
+          ]}));
+    }
   }
 
   updatePost(post, id) {
